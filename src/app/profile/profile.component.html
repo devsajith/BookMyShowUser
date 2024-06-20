@@ -1,0 +1,25 @@
+<app-header></app-header>
+
+<table class="trans_per_inhab">
+
+    <tr>
+        <td colspan="7" class="header">Booking History</td>
+    </tr>
+
+    <tr>
+        <td class="country_title">Movie</td>
+        <td class="year">Theater</td>
+        <td class="year">Date</td>
+        <td class="year">Time</td>
+        <td class="year">Seats</td>
+    </tr>
+
+    <tr *ngFor="let h of history">
+        <td class="country">{{h.movie.movieName}}</td>
+        <td class="data">{{h.theatre.theatreName}}</td>
+
+        <td class="data">{{h.pass | date}}</td>
+        <td class="data">{{h.slot}}</td>
+        <td class="data">{{h.seat}}</td>
+    </tr>
+</table>

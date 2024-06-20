@@ -1,0 +1,63 @@
+table, td, tr, th{
+    border: 0px solid black;
+    border-collapse:collapse;
+    font-family: 'Raleway', sans-serif;
+  }
+  
+  table {
+    width: 55%;
+  }
+  
+  td {
+    padding: 8px;
+  }
+  
+  tr {
+    padding: 10px;
+    background-color:#f2f2f2;
+  }
+  
+  tr.alt {
+    background-color:#262626;
+    color: #ffffff;
+  }
+  
+  td.country_title {
+    background-color:#ffffff;
+    font-weight: 900;
+    font-size: 1.2em;
+   }
+  
+  td.country {
+  width: 20%;
+   }
+  
+  td.year {
+    background-color:#ffffff;
+    font-weight: 900;
+    font-size: 1.2em;
+    text-align: center;
+   }
+  
+  td.data {
+    text-align: center;
+   }
+  
+  td.header {
+    background-color:#ffffff;
+    font-weight: 900;
+    font-size: 1.5em;
+    text-align: center;
+   }
+  
+  td.footer {
+    background-color:#ffffff;
+    font-size: 0.75em;
+   }
+  
+  td.flag {
+    width: 10%;
+  }
+  .trans_per_inhab{
+    margin-left: 451px;
+  }

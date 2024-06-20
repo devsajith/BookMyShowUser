@@ -1,0 +1,41 @@
+<div class="form_wrapper">
+    <div class="form_container">
+      <div class="title_container">
+        <h2>LOGIN</h2>
+      </div>
+      <div class="row clearfix">
+        <div class="">
+            <form [formGroup]="loginForm" (ngSubmit)="login()" method="post">
+                <div class="input_field"> <span><i aria-hidden="true" class="fa fa-envelope"></i></span>
+              <input type="email" formControlName="email" placeholder="Email" required />
+              <div
+                      *ngIf="loginForm.controls['email']?.invalid &&(loginForm.controls['email']?.dirty ||loginForm.controls['email']?.touched)"
+                      class="err">
+                      <div style="color: rgb(255, 0, 17);" class="err"
+                        *ngIf="loginForm.controls['email']?.errors?.['required']  "> Field is Mandatory</div>
+                      <div style="color: rgb(255, 0, 17);" class="err" *ngIf="loginForm.controls['email']?.errors?.['email'] ">
+                        Invalid Format</div>
+                    </div>
+
+
+            </div>
+            <div class="input_field"> <span><i aria-hidden="true" class="fa fa-lock"></i></span>
+              <input type="password" formControlName="password" placeholder="Password" required />
+              <div *ngIf="loginForm.controls['password'].touched">
+                <div class="error"  style="color: rgb(255, 0, 17);"  *ngIf="loginForm.controls['password']?.errors?.['required']">Enter
+                    password</div>
+                <div class="error" *ngIf="loginForm.controls['password']?.errors?.['pattern']">
+                    </div> <div style="color: rgb(255, 0, 17);" class="err" *ngIf="loginForm.controls['email']?.errors?.['email'] ">
+                      password must
+                    contain minimum eight characters,one uppercase,one lowercase,one number and one special character</div>
+
+            </div>
+            </div>
+            
+            <input class="button" type="submit" value="LOGIN" />
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <p class="credit">Don't have an Account&nbsp;&nbsp;<a routerLink="/register" >register here</a></p>

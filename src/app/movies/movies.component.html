@@ -1,0 +1,87 @@
+<app-header></app-header>
+<div class="container mx-auto mt-4">
+  <tr *ngFor="let view of movie">
+    <div class="row">
+      <div class="col-md-4">
+        <div class="card" style="width: 18rem;">
+          <img [src]="view.poster" alt="avatar" width="100%" height="100%">
+          <div class="card-body">
+            <h5 class="card-title">{{view.movieName}}</h5>
+            <h6 class="card-subtitle mb-2 text-muted"> {{view.language}}</h6>
+            <button class="bt" (click)="movieTheatre(view.movieId)" data-bs-toggle="modal"
+              data-bs-target="#exampleModal"> Book Ticket</button>
+          </div>
+        </div>
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+          aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">{{view.movieName}}</h5>
+                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <div>
+                  <button class="btn btn-outline-success" value="crdate" (click)="dates(crdate)"> {{crdate | date:"d MMM
+                    EE"
+                    }}</button>
+                  &nbsp;&nbsp;
+                  <button class="btn btn-outline-success" (click)="dates(datomod)"> {{datomod | date:"d MMM EE"
+                    }}</button>
+                  &nbsp;&nbsp;
+                  <button class="btn btn-outline-success" (click)="dates(tdate)"> {{tdate | date:"d MMM EE"
+                    }}</button>&nbsp;&nbsp;
+                </div>
+                <div>
+  <tr *ngFor="let view of theatre">
+    <h1>{{view.theatreName}} &nbsp;&nbsp;&nbsp;</h1>
+    {{view.location}}<br><br>
+    <button value="02:00PM" class="btn btn-outline-success"
+      (click)="timeSubmit('02:00PM')">02:00.PM</button>&nbsp;&nbsp;
+    <button value="06:00PM" class="btn btn-outline-success"
+      (click)="timeSubmit('06.00PM')">06:00.PM</button>&nbsp;&nbsp;
+    <button value="09:00PM" class="btn btn-outline-success" (click)="timeSubmit('09.00PM')">09:00.PM</button><br><br>
+  </tr>
+</div>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+  <button type="submit" class="btn btn-success" data-bs-dismiss="modal" data-bs-toggle="modal"
+    data-bs-target="#exampleModalCenter1">Next</button>
+</div>
+</div>
+</div>
+</div>
+
+ <!-- Spinner -->
+ <div *ngIf="showSpinner" class="loading">Loading&#8230;</div>
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter1" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">How many seats?</h5>
+        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <button value="09:00PM" class="btn btn-outline-success" (click)="seat('1')">1</button>&nbsp;&nbsp;
+        <button value="09:00PM" class="btn btn-outline-success" (click)="seat('2')">2</button>&nbsp;&nbsp;
+        <button value="09:00PM" class="btn btn-outline-success" (click)="seat('3')">3</button>&nbsp;&nbsp;
+        <button value="09:00PM" class="btn btn-outline-success" (click)="seat('4')">4</button>&nbsp;&nbsp;
+        <button value="09:00PM" class="btn btn-outline-success" (click)="seat('5')">5</button>&nbsp;&nbsp;
+      </div>
+      <div class="modal-footer">
+        <p *ngFor="let view of theatre">
+          <button type="button" class="btn btn-primary" (click)="booknow(view.theatreId)" data-bs-dismiss="modal">Book
+            now</button>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
